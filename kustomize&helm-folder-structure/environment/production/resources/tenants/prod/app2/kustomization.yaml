@@ -1,0 +1,11 @@
+kustomization: app2 kustomizations
+
+namespace:
+
+helmGlobals: 
+  chartHome: "../../../../../../manifests"
+
+helmCharts:
+  - name: custom-webapp
+    releaseName: 
+    valuesInline:

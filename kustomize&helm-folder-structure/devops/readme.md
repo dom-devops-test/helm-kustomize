@@ -1,0 +1,3 @@
+# DEVOPS
+
+This folder would contain your sub-directories for your devops infra. Let's give as example a sub-dir for terraform, a sub-dir containing your pipeline files, etc, etc...

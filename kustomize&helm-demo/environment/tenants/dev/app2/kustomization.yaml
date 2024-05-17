@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Creates the secrets when deploying our kustomization
+resources:
+  - secret.app2.yaml
+# Declare our root directory where to find our charts
+helmGlobals:
+  chartHome: "../../../../manifests"
+# We declare the name of our specific chart 
+helmCharts:
+  - name: custom-webapp
+    # Declare and set the values we want to override
+    valuesInLine:
+      name: app2
+      replicas: 2  
+      image:
+        repository: foo
+        image: bar  
+      configmaps:
+        enabled: true
+      secrets:
+        enabled: true
+      # you can see how this value just appends to my default value
+      configuration:
+        ASPNETCORE_URLS: "http://+:80"
+ 
+

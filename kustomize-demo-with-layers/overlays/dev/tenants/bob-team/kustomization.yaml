@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../root-tenant
+
+# If you take a closer look here, I added a patch to add a new port. 
+# Since the ports are an array I can simply use them to append another value to the existing port.
+# This can be very useful for Configmaps.
+patches:
+- path: service.yaml

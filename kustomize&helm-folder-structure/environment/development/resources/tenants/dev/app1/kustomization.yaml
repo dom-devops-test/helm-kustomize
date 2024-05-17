@@ -1,0 +1,14 @@
+kustomization: app1 kustomizations
+
+namespace:
+
+resources:
+ - secret.app1.yaml
+
+helmGlobals: 
+  chartHome: "../../../../../../manifests"
+
+helmCharts:
+  - name: custom-webapp
+    releaseName: 
+    valuesInline:

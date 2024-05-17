@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base
+
+
+patches:
+# applying a patch by using inline string
+- patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: frontend-deployment
+    spec:
+      template:
+        spec:
+          containers:
+          - name: nginx
+            image: nginx:latest

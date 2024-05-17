@@ -1,0 +1,3 @@
+# MANIFESTS
+
+This directory would contain sub-directories with your custom or existing Helm charts & base values. Note that if you are using a Helm chart that already contains values and you do not wish to change them, you can make your kustomization fetch the chart from a Helm registery/repository without having to store them in your manifests directory. You could also make your own Helm repository and ignore this forlder.

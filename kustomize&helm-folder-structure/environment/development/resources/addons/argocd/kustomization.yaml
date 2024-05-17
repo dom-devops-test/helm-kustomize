@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: argocd
+
+resources:
+- ./patches/patch1.yaml
+- namespace.yaml
+
+helmGlobals:
+  chartHome: '../../../../../manifests'
+
+helmCharts:
+  - name: 'argocd'
+    releaseName: argocd
+    namespace: argocd
+    version: 5.46.8
+    # This annotation has to be added to install the CRDs while installing the chart. (always true for any chart containing CRDs)
+    includeCRDs: true
+    valuesInline:
+      global:
+        deploymentAnnotations: 
+          reloader.stakater.com/auto: "true"

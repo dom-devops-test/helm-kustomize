@@ -1,0 +1,15 @@
+{{- if .Values.service.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}-svc
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.image.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ .Values.name }}
+{{- end -}}

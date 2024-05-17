@@ -1,0 +1,26 @@
+name: webapp
+
+namespace: default
+replicas: 1
+
+image:
+  repository: changeme.azurecr.io
+  image: default
+  tag: latest
+  port: 80
+
+configmap:
+  enabled: false
+configuration:
+  TZ: "America/Montreal"
+
+secrets:
+  enabled: false
+
+service:
+  enabled: true
+  name: webapp-svc
+  type: ClusterIP
+  externalName: null
+  # port: 8080
+  targetPort: 80
