@@ -74,6 +74,7 @@ This repository was made to illustrate use of Kustomize with environements and s
 <br>
 Here I added a child directory to dan-team to show it is not possible to refer to a base directory containing sub-directories with other kustomization files.<br>
 The patches used in these examples show how it is possible to use $patch: delete or to patch by adding values to a previous patch in case of an array.<br>
+
 Please remember that when using directories, sub-directories and other external or multi-references, you need to add the ```--load-restrictor``` flag to your kustomize build command.
 
 ```
@@ -104,6 +105,7 @@ This repository was made to demonstrate the use of Helm in the kustomization fil
 ```
 
 <br>
+
 Please remember that when using Helm with kustomize, the ```--enable-helm``` flag needs to be added to our kustomize build command.
 
 ## [kustomize&helm-folder-structure](./kustomize&helm-folder-structure/)
